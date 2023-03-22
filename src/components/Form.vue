@@ -24,12 +24,7 @@ import TableData from './TableData.vue'
                     <base-select label="Pilih Posisi" v-model="form.posisiId" :options="positions"
                         placeholder="Select a position">
                     </base-select>
-                    <base-checkbox-group
-                    label="Skills"
-                    v-model="form.skills"
-                    :options="skills"
-                    inline
-                    >
+                    <base-checkbox-group label="Skills" v-model="form.skills" :options="skills" inline>
                     </base-checkbox-group>
                     <hr />
                     <div class="form-group">
@@ -38,9 +33,6 @@ import TableData from './TableData.vue'
             </form>
         </div>
             <div class="col-md-6">
-                <!-- <pre>
-                    {{ product }}
-                    </pre> -->
                 <TableData />
             </div>
         </div>
@@ -58,7 +50,7 @@ export default {
                 tgl_lahir: "",
                 jk: 2,
                 posisiId: 1,
-                skills: [1,2,3,4],
+                skills: [1, 2, 3, 4],
             },
             positions: [
                 { value: 1, text: "Front End Developer" },
