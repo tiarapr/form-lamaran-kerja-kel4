@@ -25,7 +25,7 @@ import TableData from './TableData.vue'
                         placeholder="Select a position">
                     </base-select>
                     <base-checkbox-group
-                    label="Skills grup"
+                    label="Skills"
                     v-model="form.skills"
                     :options="skills"
                     inline
