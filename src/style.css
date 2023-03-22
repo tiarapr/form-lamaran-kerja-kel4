@@ -14,35 +14,24 @@
   -webkit-text-size-adjust: 100%;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  /* Created with https://www.css-gradient.com */
+  background: #C9E9FF;
+  background: -webkit-linear-gradient(top left, #C9E9FF, #9685DD);
+  background: -moz-linear-gradient(top left, #C9E9FF, #9685DD);
+  background: linear-gradient(to bottom right, #C9E9FF, #9685DD);
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+}
+
+h3 {
+  padding-bottom: 20px;
 }
 
 button {
@@ -56,9 +45,15 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
+.border-bottom {
+  margin-bottom: 20px;
+}
+
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -72,7 +67,24 @@ button:focus-visible {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
+  /* text-align: center; */
+}
+
+.lamaran-form {
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  padding: 25px;
+  margin: 20px;
+}
+
+.table-data {
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  padding: 25px;
+  margin: 20px;
+  width: fit-content;
 }
 
 @media (prefers-color-scheme: light) {
@@ -80,9 +92,11 @@ button:focus-visible {
     color: #213547;
     background-color: #ffffff;
   }
+
   a:hover {
     color: #747bff;
   }
+
   button {
     background-color: #f9f9f9;
   }
