@@ -7,7 +7,7 @@ import TableData from './TableData.vue'
         <div class="row">
             <div class="col-md-6">
                 <form class="lamaran-form" action="#">
-                    <h1 class="border-bottom mb-8">Form Apply Lamaran</h1>
+                    <h1 class="border-bottom mb-8">Form Lamaran Kerja</h1>
                     <base-input type="text" v-model="form.name" label="Nama"></base-input>
                     <div class="form-group">
                         <label>Deskripsi Diri</label>
@@ -56,7 +56,7 @@ export default {
                 email: "contact.tiarapr@gmail.com",
                 telp: "085606114068",
                 tgl_lahir: "",
-                jk: 1,
+                jk: 2,
                 posisiId: 1,
                 skills: [1,2,3,4],
             },
@@ -68,7 +68,7 @@ export default {
             ],
             jk: [
                 { text: "Laki - Laki", value: 1 },
-                { text: "Perempuan", value: 0 },
+                { text: "Perempuan", value: 2 },
             ],
             skills: [
                 { value: 1, text: "HTML, CSS, JavaScript" },
