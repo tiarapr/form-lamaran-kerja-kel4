@@ -5,7 +5,7 @@ import TableData from './TableData.vue'
 <template>
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
+            <div>
                 <form class="lamaran-form" action="#">
                     <h1 class="border-bottom mb-8">Form Lamaran Kerja</h1>
                     <base-input type="text" v-model="form.name" label="Nama"></base-input>
@@ -45,9 +45,6 @@ import TableData from './TableData.vue'
                     </div>
                 </form>
             </div>
-            <div class="col-md-6">
-                <TableData />
-            </div>
         </div>
     </div>
 </template>
@@ -56,17 +53,17 @@ export default {
     data() {
         return {
             form: {
-                name: "Tiara",
-                description: "Hello, I'm Tiara!",
-                experience: "Bekerja di PT selama 2 tahun",
-                email: "contact.tiarapr@gmail.com",
-                telp: "085606114068",
-                address: "Jalan - jalan",
+                name: "",
+                description: "",
+                experience: "",
+                email: "",
+                telp: "",
+                address: "",
                 tgl_lahir: "",
-                education: 1,
-                jk: 2,
-                posisiId: 1,
-                skills: [1, 2, 3, 4],
+                education: "",
+                jk: "",
+                posisiId: "",
+                skills: [],
             },
             educations: [
                 { value: 1, text: "SMA / SMK" },

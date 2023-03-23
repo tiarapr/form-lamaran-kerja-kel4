@@ -24,6 +24,5 @@ export default {
         console.log(this.$attrs);
     },
 };
-
 </script>
     

@@ -8,9 +8,9 @@ import BaseRadio from './components/form/BaseRadio.vue'
 import BaseRadioGroup from './components/form/BaseRadioGroup.vue'
 import BaseCheckboxGroup from './components/form/BaseCheckboxGroup.vue'
 
-//createApp(ReusableKomponen).mount('#app')
+//createApp(App).mount('#app')
 
-const app = createApp(Form);
+const app = createApp(App);
 app.component("base-input", BaseInput)
 .component("base-select", BaseSelect)
 .component("base-radio", BaseRadio)
