@@ -14,9 +14,22 @@ import TableData from './TableData.vue'
                         <textarea class="form-control" rows="5" :value="form.description"
                             @input="form.description = $event.target.value"></textarea>
                     </div>
-                    <base-input type="date" v-model="form.tgl_lahir" label="Tanggal Lahir"></base-input>
+                    <div class="form-group">
+                        <label>Pengalaman Kerja</label>
+                        <textarea class="form-control" rows="5" :value="form.experience"
+                            @input="form.experience = $event.target.value"></textarea>
+                    </div>
+                    <base-select label="Pendidikan" v-model="form.education" :options="educations"
+                        placeholder="Pilih Pendidikan Terakhir">
+                    </base-select>
                     <base-input type="email" v-model="form.email" label="Email"></base-input>
                     <base-input type="text" v-model="form.telp" label="No. Telp"></base-input>
+                    <div class="form-group">
+                        <label>Alamat</label>
+                        <textarea class="form-control" rows="5" :value="form.address"
+                            @input="form.address = $event.target.value"></textarea>
+                    </div>
+                    <base-input type="date" v-model="form.tgl_lahir" label="Tanggal Lahir"></base-input>
                     <div class="base-group">
                         <base-radio-group label="Jenis Kelamin" name="jenisKelamin" :options="jk" v-model="form.jk">
                         </base-radio-group>
@@ -30,8 +43,8 @@ import TableData from './TableData.vue'
                     <div class="form-group">
                         <button class="btn btn-lg btn-primary">Save</button>
                     </div>
-            </form>
-        </div>
+                </form>
+            </div>
             <div class="col-md-6">
                 <TableData />
             </div>
@@ -45,13 +58,22 @@ export default {
             form: {
                 name: "Tiara",
                 description: "Hello, I'm Tiara!",
+                experience: "Bekerja di PT selama 2 tahun",
                 email: "contact.tiarapr@gmail.com",
                 telp: "085606114068",
+                address: "Jalan - jalan",
                 tgl_lahir: "",
+                education: 1,
                 jk: 2,
                 posisiId: 1,
                 skills: [1, 2, 3, 4],
             },
+            educations: [
+                { value: 1, text: "SMA / SMK" },
+                { value: 2, text: "D3" },
+                { value: 3, text: "D4 / S1" },
+                { value: 4, text: "S2" },
+            ],
             positions: [
                 { value: 1, text: "Front End Developer" },
                 { value: 2, text: "Back End Developer" },
