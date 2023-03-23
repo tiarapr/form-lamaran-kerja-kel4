@@ -7,8 +7,12 @@
                     <th scope="col">No.</th>
                     <th scope="col">Nama</th>
                     <th scope="col">Deskripsi</th>
+                    <th scope="col">Pengalaman Kerja</th>
+                    <th scope="col">Pendidikan</th>
                     <th scope="col">Email</th>
                     <th scope="col">No. Telp</th>
+                    <th scope="col">Alamat</th>
+                    <th scope="col">Tanggal Lahir</th>
                     <th scope="col">Jenis Kelamin</th>
                     <th scope="col">Posisi</th>
                     <th scope="col">Skills</th>
@@ -20,8 +24,12 @@
                     <th scope="row">1</th>
                     <td>{{ form.name }}</td>
                     <td>{{ form.description }}</td>
+                    <td>{{ form.experience }}</td>
+                    <td>{{ form.education }}</td>
                     <td>{{ form.email }}</td>
                     <td>{{ form.telp }}</td>
+                    <td>{{ form.address }}</td>
+                    <td>{{ form.tgl_lahir }}</td>
                     <td>{{ form.jk }}</td>
                     <td>{{ form.posisiId }}</td>
                     <td>{{ form.skills }}</td>
@@ -45,9 +53,12 @@ export default {
             form: {
                 name: "Tiara",
                 description: "Hello, I'm Tiara!",
+                experience: "Bekerja di PT selama 2 tahun",
                 email: "contact.tiarapr@gmail.com",
                 telp: "085606114068",
+                address: "Jalan - jalan",
                 tgl_lahir: "",
+                education: 1,
                 jk: "Perempuan",
                 posisiId: 1,
                 skills: [
