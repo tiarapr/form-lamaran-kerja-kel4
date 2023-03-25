@@ -1,21 +1,20 @@
 <script setup>
 import { reactive } from "vue";
+import { ref } from 'vue'
 
-const allData = reactive([
-  // {
-  //   name: "Tiara",
-  //   description: "Hello, I'm Tiara!",
-  //   experience: "Bekerja di PT selama 2 tahun",
-  //   email: "contact.tiarapr@gmail.com",
-  //   telp: "085606114068",
-  //   address: "Jalan - jalan",
-  //   tgl_lahir: "",
-  //   education: 1,
-  //   jk: 2,
-  //   posisiId: 1,
-  //   skills: [1, 4, 5, 7],
-  // },
-]);
+const notifData = ref([false, '', true])
+
+function notification(message, notifStatus) {
+  notifData.value[1] = message
+  notifData.value[2] = notifStatus
+  notifData.value[0] = true
+  setTimeout(() => {
+    notifData.value[0] =false
+  }, 3000)
+}
+
+const allData = reactive([]);
+
 const formInput = reactive({
   name: "",
   description: "",
@@ -29,6 +28,7 @@ const formInput = reactive({
   posisiId: "",
   skills: [],
 });
+
 const dataForm = {
   educations: [
     { value: 1, text: "SMA / SMK" },
@@ -71,6 +71,7 @@ const errors = reactive({
   posisi: "",
   skills: "",
 });
+
 const onSubmit = () => {
   let isValid = true;
   const newValues = {};
@@ -97,19 +98,25 @@ const onSubmit = () => {
     errors.jk = "Bidang Jenis Kelamin wajib diisi!";
     errors.posisi = "Bidang Posisi wajib diisi!";
     errors.skills = "Bidang Skill wajib diisi!";
+    notification('Isi semua data terlebih dahulu!', false)
   }
 };
+
 const tambahData = (value) => {
-  allData.push(value);
+  allData.push(value)
+  notification('Data berhasil disimpan!', true)
 };
+
 const hapusData = (index) => {
   const konfirmasi = confirm("Apakah yakin ingin menghapus data ini?");
-  if (konfirmasi) allData.splice(index, 1);
+  if (konfirmasi) allData.splice(index, 1)
+  notification('Data berhasil diihapus!', true)
 };
 </script>
 
 <template>
   <div class="container">
+    <notif-component :notifData="notifData" />
     <div class="row">
       <div class="col-md-6">
         <form-component v-model:form="formInput" :onSubmit="onSubmit" :dataForm="dataForm" :errors="errors" />
