@@ -7,6 +7,7 @@ const props = defineProps({
 
 const educations = props.dataForm.educations;
 const positions = props.dataForm.positions;
+const jk = props.dataForm.jk;
 const skills = props.dataForm.skills;
 </script>
 
@@ -45,7 +46,7 @@ const skills = props.dataForm.skills;
           <td>{{ item.telp }}</td>
           <td>{{ item.address }}</td>
           <td>{{ item.tgl_lahir }}</td>
-          <td>{{ item.jk }}</td>
+          <td>{{ item.jk ? jk[item.jk - 1].text : "" }}</td>
           <td>{{ item.posisiId ? positions[item.posisiId - 1].text : "" }}</td>
           <td>
             <ul class="pl-0" style="list-style-type: none">

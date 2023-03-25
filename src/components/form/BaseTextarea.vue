@@ -1,22 +1,21 @@
 <template>
   <div class="form-group">
     <label>{{ label }}</label>
-    <input class="form-control" :class="{ 'is-invalid': getError() }" v-bind="$attrs" :value="modelValue" @input="$emit('update:modelValue', $event.target.value)" />
+    <textarea class="form-control" :class="{ 'is-invalid': getError() }" rows="5" :value="modelValue" @input="$emit('update:modelValue', $event.target.value)"></textarea>
     <div class="invalid-feedback" v-if="getError()">{{ getError() }}</div>
   </div>
 </template>
 
 <script>
 export default {
-  inheritAttrs: false,
   props: {
+    modelValue: {
+      type: String,
+      default: null,
+    },
     label: {
       type: String,
       required: true,
-    },
-    modelValue: {
-      type: [String, Number, Date],
-      default: null,
     },
     error: String,
   },

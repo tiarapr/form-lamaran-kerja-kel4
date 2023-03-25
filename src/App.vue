@@ -11,7 +11,7 @@ const allData = reactive([
   //   address: "Jalan - jalan",
   //   tgl_lahir: "",
   //   education: 1,
-  //   jk: "Perempuan",
+  //   jk: 2,
   //   posisiId: 1,
   //   skills: [1, 4, 5, 7],
   // },
@@ -57,6 +57,20 @@ const dataForm = {
     { value: 8, text: "UX Design" },
   ],
 };
+
+const errors = reactive({
+  name: "",
+  description: "",
+  experience: "",
+  email: "",
+  telp: "",
+  address: "",
+  tgl_lahir: "",
+  education: "",
+  jk: "",
+  posisi: "",
+  skills: "",
+});
 const onSubmit = () => {
   let isValid = true;
   const newValues = {};
@@ -68,6 +82,21 @@ const onSubmit = () => {
       if (key == "skills") formInput[key] = [];
       else formInput[key] = "";
     }
+    for (let key in errors) {
+      errors[key] = "";
+    }
+  } else {
+    errors.name = "Bidang Nama wajib diisi!";
+    errors.description = "Bidang Deskripsi wajib diisi!";
+    errors.experience = "Bidang Pengalaman wajib diisi!";
+    errors.email = "Bidang Email wajib diisi!";
+    errors.telp = "Bidang Telepon wajib diisi!";
+    errors.address = "Bidang Alamat wajib diisi!";
+    errors.tgl_lahir = "Bidang Tanggal Lahir wajib diisi!";
+    errors.education = "Bidang Pendidikan wajib diisi!";
+    errors.jk = "Bidang Jenis Kelamin wajib diisi!";
+    errors.posisi = "Bidang Posisi wajib diisi!";
+    errors.skills = "Bidang Skill wajib diisi!";
   }
 };
 const tambahData = (value) => {
@@ -83,7 +112,7 @@ const hapusData = (index) => {
   <div class="container">
     <div class="row">
       <div class="col-md-6">
-        <form-component v-model:form="formInput" :onSubmit="onSubmit" :dataForm="dataForm" />
+        <form-component v-model:form="formInput" :onSubmit="onSubmit" :dataForm="dataForm" :errors="errors" />
       </div>
       <div class="col-md-6">
         <table-data :allData="allData" :hapusData="hapusData" :dataForm="dataForm" />

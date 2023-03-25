@@ -1,22 +1,41 @@
 <template>
   <div class="form-group">
     <label>{{ label }}</label>
-    <div>
+    <div class="is-invalid">
       <div :class="classes" v-for="option in options" :key="`checkbox-${option.value}`">
         <input class="form-check-input" type="checkbox" :value="option.value" :checked="isChecked(option.value)" @change="handleChange" />
         <label class="form-check-label">{{ option.text }}</label>
       </div>
     </div>
+    <div class="invalid-feedback" v-if="getError()">{{ getError() }}</div>
   </div>
 </template>
 
 <script>
 export default {
+  props: {
+    modelValue: {
+      type: Array,
+      default: () => ({}),
+    },
+    options: {
+      type: Array,
+      required: true,
+    },
+    label: {
+      type: String,
+      required: true,
+    },
+    inline: {
+      type: Boolean,
+      default: false,
+    },
+    error: String,
+  },
   methods: {
     isChecked(value) {
       return this.modelValue.includes(value);
     },
-
     handleChange(event) {
       const checked = event.target.checked;
       let value = event.target.value;
@@ -34,23 +53,9 @@ export default {
 
       this.$emit("update:modelValue", newValues);
     },
-  },
-  props: {
-    modelValue: {
-      type: Array,
-      default: () => ({}),
-    },
-    options: {
-      type: Array,
-      required: true,
-    },
-    label: {
-      type: String,
-      required: true,
-    },
-    inline: {
-      type: Boolean,
-      default: false,
+    getError() {
+      if (this.modelValue == "") return this.error;
+      return false;
     },
   },
   inheritAttrs: false,

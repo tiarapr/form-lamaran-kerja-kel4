@@ -5,35 +5,29 @@
         <form class="lamaran-form" @submit.prevent="onSubmit">
           <h1 class="border-bottom mb-8">Form Lamaran Kerja</h1>
           <!-- Base Input Nama -->
-          <base-input type="text" v-model="form.name" label="Nama"></base-input>
-          <div class="form-group">
-            <label>Deskripsi Diri</label>
-            <textarea class="form-control" rows="5" :value="form.description" @input="form.description = $event.target.value"></textarea>
-          </div>
-          <div class="form-group">
-            <label>Pengalaman Kerja</label>
-            <textarea class="form-control" rows="5" :value="form.experience" @input="form.experience = $event.target.value"></textarea>
-          </div>
+          <base-input type="text" v-model="form.name" label="Nama" :error="errors.name"></base-input>
+          <!-- Base Textarea Deskripsi -->
+          <base-textarea v-model="form.description" label="Deskripsi Diri" :error="errors.description"></base-textarea>
+          <!-- Base Textarea Pengalaman Kerja -->
+          <base-textarea v-model="form.experience" label="Pengalaman Kerja" :error="errors.experience"></base-textarea>
           <!-- Base Select Pendidikan -->
-          <base-select label="Pendidikan" v-model="form.education" :options="dataForm.educations" placeholder="Pilih Pendidikan Terakhir"> </base-select>
+          <base-select label="Pendidikan" v-model="form.education" :options="dataForm.educations" placeholder="Pilih Pendidikan Terakhir" :error="errors.education"></base-select>
           <!-- Base Input Email -->
-          <base-input type="email" v-model="form.email" label="Email"></base-input>
+          <base-input type="email" v-model="form.email" label="Email" :error="errors.email"></base-input>
           <!-- Base Input No. Telp -->
-          <base-input type="text" v-model="form.telp" label="No. Telp"></base-input>
-          <div class="form-group">
-            <label>Alamat</label>
-            <textarea class="form-control" rows="5" :value="form.address" @input="form.address = $event.target.value"></textarea>
-          </div>
+          <base-input type="text" v-model="form.telp" label="No. Telp" :error="errors.telp"></base-input>
+          <!-- Base Textarea Pengalaman Kerja -->
+          <base-textarea v-model="form.address" label="Alamat" :error="errors.address"></base-textarea>
           <!-- Base Input Tanggal Lahir -->
-          <base-input type="date" v-model="form.tgl_lahir" label="Tanggal Lahir"></base-input>
+          <base-input type="date" v-model="form.tgl_lahir" label="Tanggal Lahir" :error="errors.tgl_lahir"></base-input>
           <!-- Base Radio Group Jenis Kelamin -->
           <div class="base-group">
-            <base-radio-group label="Jenis Kelamin" name="jenisKelamin" :options="dataForm.jk" v-model="form.jk"> </base-radio-group>
+            <base-radio-group label="Jenis Kelamin" name="jenisKelamin" :options="dataForm.jk" v-model="form.jk" :error="errors.jk"></base-radio-group>
           </div>
           <!-- Base Select Posisi -->
-          <base-select label="Pilih Posisi" v-model="form.posisiId" :options="dataForm.positions" placeholder="Select a position"> </base-select>
+          <base-select label="Pilih Posisi" v-model="form.posisiId" :options="dataForm.positions" placeholder="Select a position" :error="errors.posisi"> </base-select>
           <!-- Base Checkbox Group Skills -->
-          <base-checkbox-group label="Skills" v-model="form.skills" :options="dataForm.skills" inline> </base-checkbox-group>
+          <base-checkbox-group label="Skills" v-model="form.skills" :options="dataForm.skills" inline :error="errors.skills"> </base-checkbox-group>
           <hr />
           <!-- Button Save -->
           <div class="form-group">
@@ -50,6 +44,7 @@ export default {
     form: Object,
     onSubmit: Function,
     dataForm: Object,
+    errors: Object,
   },
 };
 </script>

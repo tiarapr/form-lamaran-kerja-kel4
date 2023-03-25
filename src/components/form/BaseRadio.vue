@@ -1,6 +1,6 @@
 <template>
-  <div class="form-check form-check-inline">
-    <input class="form-check-input" type="radio" :value="value" :checked="modelValue == value" @change="$emit('update:modelValue', $event.target.value)" v-bind="$attrs" />
+  <div class="form-check form-check-inline is-invalid">
+    <input class="form-check-input" :class="{ 'is-invalid': getError() }" type="radio" :value="value" :checked="modelValue == value" @change="$emit('update:modelValue', $event.target.value)" v-bind="$attrs" />
     <label class="form-check-label">{{ label }}</label>
   </div>
 </template>
@@ -21,6 +21,7 @@ export default {
       type: [String, Number],
       required: true,
     },
+    getError: Function,
   },
 };
 </script>
