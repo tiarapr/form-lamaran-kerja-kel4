@@ -109,8 +109,10 @@ const tambahData = (value) => {
 
 const hapusData = (index) => {
   const konfirmasi = confirm("Apakah yakin ingin menghapus data ini?");
-  if (konfirmasi) allData.splice(index, 1)
-  notification('Data berhasil diihapus!', true)
+  if (konfirmasi) {
+    allData.splice(index, 1)
+    notification('Data berhasil diihapus!', true)
+  }
 };
 </script>
 
