@@ -24,8 +24,7 @@ export default {
       default: null,
     },
     options: {
-      type: Array,
-      required: true,
+      type: Array
     },
     placeholder: {
       type: String,

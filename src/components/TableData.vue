@@ -5,11 +5,6 @@ const props = defineProps({
   editData: Function,
   hapusData: Function
 });
-
-const educations = props.dataForm.educations;
-const positions = props.dataForm.positions;
-const jk = props.dataForm.jk;
-const skills = props.dataForm.skills;
 </script>
 
 <template>
@@ -42,16 +37,16 @@ const skills = props.dataForm.skills;
           <td>{{ item.name }}</td>
           <td>{{ item.description }}</td>
           <td>{{ item.experience }}</td>
-          <td>{{ item.education ? educations[item.education - 1].text : "" }}</td>
+          <td>{{ item.education ? dataForm.educations[item.education - 1].text : "" }}</td>
           <td>{{ item.email }}</td>
           <td>{{ item.telp }}</td>
           <td>{{ item.address }}</td>
           <td>{{ item.tgl_lahir }}</td>
-          <td>{{ item.jk ? jk[item.jk - 1].text : "" }}</td>
-          <td>{{ item.posisiId ? positions[item.posisiId - 1].text : "" }}</td>
+          <td>{{ item.jk ? dataForm.jk[item.jk - 1].text : "" }}</td>
+          <td>{{ item.posisiId ? dataForm.positions[item.posisiId - 1].text : "" }}</td>
           <td>
             <ul class="pl-0" style="list-style-type: none">
-              <li v-for="skill in item.skills">{{ skill ? skills[skill - 1].text : "" }}</li>
+              <li v-for="skill in item.skills">{{ skill ? dataForm.skills[skill - 1].text : "" }}</li>
             </ul>
           </td>
           <td class="p-0">
