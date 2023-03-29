@@ -6,6 +6,7 @@ const allData = ref([]);
 const notifData = ref([false, '', true])
 const isEdit = ref(false);
 const dataForm = ref({});
+
 const formInput = reactive({
   id: "",
   name: "",
@@ -80,6 +81,7 @@ const onSubmit = () => {
   }
 }
 
+// load data form
 const loadDataForm = () => {
   axios.get('http://localhost:3000/dataForm').then(res => {
     dataForm.value = res.data;
@@ -88,6 +90,7 @@ const loadDataForm = () => {
   });
 }
 
+// load data user
 const load = (value) => {
   axios.get("http://localhost:3000/users").then(res => {
     allData.value = res.data;
@@ -96,6 +99,7 @@ const load = (value) => {
   })
 }
 
+// Untuk tambah data
 const tambahData = (value) => {
   axios.post('http://localhost:3000/users', formInput).then(res => {
     load();
@@ -104,6 +108,7 @@ const tambahData = (value) => {
   });
 }
 
+// untuk edit data
 const editData = (data) => {
   isEdit.value = true;
   for (let key in formInput) {
@@ -111,6 +116,7 @@ const editData = (data) => {
   }
 }
 
+// untuk update data
 const updateData = (data) => {
   const newValue = {};
   for (let key in formInput)
@@ -125,6 +131,7 @@ const updateData = (data) => {
   });
 }
 
+// untuk hapus data
 const hapusData = (index) => {
   const konfirmasi = confirm("Apakah yakin ingin menghapus data ini?");
   if (konfirmasi) {
