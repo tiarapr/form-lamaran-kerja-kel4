@@ -19,8 +19,7 @@ export default {
       default: () => ({}),
     },
     options: {
-      type: Array,
-      required: true,
+      type: Array
     },
     label: {
       type: String,

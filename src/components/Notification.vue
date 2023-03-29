@@ -12,7 +12,7 @@ defineProps({
 
 <style scoped>
 .notification {
-  position: absolute;
+  position: fixed;
   top: -5em;
   right: 2em;
   padding: 0.5em 1em;

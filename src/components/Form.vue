@@ -31,7 +31,7 @@
           <hr />
           <!-- Button Save -->
           <div class="form-group">
-            <button type="submit" class="btn btn-lg btn-primary">Save</button>
+            <button type="submit" class="btn btn-lg btn-primary">{{ isEdit ? 'Update' : 'Save' }}</button>
           </div>
         </form>
       </div>
@@ -45,6 +45,7 @@ export default {
     onSubmit: Function,
     dataForm: Object,
     errors: Object,
+    isEdit: Boolean
   },
 };
 </script>
