@@ -3,6 +3,7 @@ import './style.css'
 import App from './App.vue'
 import Form from './components/Form.vue'
 import BaseInput from './components/form/BaseInput.vue'
+import BaseTextarea from './components/form/BaseTextarea.vue'
 import BaseSelect from './components/form/BaseSelect.vue'
 import BaseRadio from './components/form/BaseRadio.vue'
 import BaseRadioGroup from './components/form/BaseRadioGroup.vue'
@@ -12,6 +13,7 @@ import BaseCheckboxGroup from './components/form/BaseCheckboxGroup.vue'
 
 const app = createApp(App);
 app.component("base-input", BaseInput)
+.component("base-textarea", BaseTextarea)
 .component("base-select", BaseSelect)
 .component("base-radio", BaseRadio)
 .component("base-radio-group", BaseRadioGroup)
