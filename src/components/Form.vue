@@ -19,7 +19,7 @@
           <div class="col-6">
             <!-- Base Input No. Telp -->
             <base-input type="text" v-model="form.telp" label="No. Telp" :error="errors.telp"></base-input>
-            <!-- Base Textarea Pengalaman Kerja -->
+            <!-- Base Textarea Alamat -->
             <base-textarea v-model="form.address" label="Alamat" :error="errors.address"></base-textarea>
             <!-- Base Input Tanggal Lahir -->
             <base-input type="date" v-model="form.tgl_lahir" label="Tanggal Lahir" :error="errors.tgl_lahir"></base-input>

@@ -96,7 +96,7 @@ onUpdated(() => {
       </div>
     </div>
     <div class="buttons border-top pt-4 d-flex justify-content-end">
-      <router-link :to="{name: 'home'}" class="btn btn-secondary">Batal</router-link>
+      <router-link :to="{name: 'home'}" class="btn btn-secondary">Kembali</router-link>
       <button type="submit" class="btn btn-primary" @click="editData(user)">Edit</button>
       <button type="submit" class="btn btn-danger" @click="hapusData(user.id)">Hapus</button>
     </div>
