@@ -17,7 +17,8 @@
         2,
         5,
         6,
-        4
+        4,
+        3
       ]
     },
     {
@@ -28,7 +29,7 @@
       "email": "contact.tiarapr@gmail.com",
       "telp": "085606114068",
       "address": "Surabaya",
-      "tgl_lahir": "2023-03-01",
+      "tgl_lahir": "2023-03-07",
       "education": "1",
       "jk": "2",
       "posisiId": "1",

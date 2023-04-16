@@ -1,11 +1,13 @@
 <script setup>
 import { ref, reactive, onMounted } from "vue";
+import { useRouter } from 'vue-router'
 import axios from "axios";
 
 const allData = ref([]);
 const notifData = ref([false, '', true])
 const isEdit = ref(false);
 const dataForm = ref({});
+const router = useRouter()
 
 const formInput = reactive({
   id: "",
@@ -23,6 +25,7 @@ const formInput = reactive({
 });
 
 const clearFormInput = () => {
+  isEdit.value = false;
   for (let key in formInput) {
     if (key == "skills") formInput[key] = [];
     else formInput[key] = "";
@@ -104,6 +107,7 @@ const tambahData = (value) => {
   axios.post('http://localhost:3000/users', formInput).then(res => {
     load();
     clearFormInput();
+    router.push({name: "home"});
     notification('Data berhasil ditambah!', true);
   });
 }
@@ -114,6 +118,7 @@ const editData = (data) => {
   for (let key in formInput) {
     formInput[key] = data[key];
   }
+  router.push({name: "edit", params: {id: data.id}});
 }
 
 // untuk update data
@@ -125,6 +130,7 @@ const updateData = (data) => {
     load();
     clearFormInput();
     isEdit.value = false;
+    router.push({name: "detail", params: {id: newValue.id}})
     notification('Data berhasil diperbarui!', true);
   }).catch(err => {
     console.log(err);
@@ -139,6 +145,7 @@ const hapusData = (index) => {
       load();
       let index = allData.value.indexOf(formInput.id);
       allData.value.splice(index, 1);
+      router.push({name: "home"});
       notification('Data berhasil dihapus!', true);
     });
   }
@@ -151,15 +158,15 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="container">
+  <div class="container mt-4">
     <notif-component :notifData="notifData" />
-    <div class="row">
-      <div class="col-md-6">
-        <form-component v-model:form="formInput" :onSubmit="onSubmit" :dataForm="dataForm" :errors="errors" :isEdit="isEdit" />
-      </div>
-      <div class="col-md-6">
-        <table-data :allData="allData" :dataForm="dataForm" :editData="editData" :hapusData="hapusData" />
-      </div>
-    </div>
+    <router-view v-model:form="formInput" :onSubmit="onSubmit" :dataForm="dataForm" :errors="errors" :isEdit="isEdit" :clearFormInput="clearFormInput" :allData="allData" :editData="editData" :hapusData="hapusData"></router-view>
   </div>
 </template>
+
+<style scoped>
+.container {
+  display: flex;
+  justify-content: center;
+}
+</style>
