@@ -39,6 +39,27 @@
         5,
         7
       ]
+    },
+    {
+      "id": 3,
+      "name": "Natasya Surya Risky Amanda Putri",
+      "description": "-",
+      "experience": "-",
+      "email": "natasya.surya20@gmail.com",
+      "telp": "0895350057180",
+      "address": "Sidoarjo",
+      "tgl_lahir": "2004-12-13",
+      "education": "2",
+      "jk": "2",
+      "posisiId": "3",
+      "skills": [
+        1,
+        4,
+        5,
+        2,
+        6,
+        3
+      ]
     }
   ],
   "dataForm": {
