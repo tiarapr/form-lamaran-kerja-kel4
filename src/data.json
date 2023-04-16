@@ -60,6 +60,23 @@
         6,
         3
       ]
+    },
+    {
+      "id": 4,
+      "name": "Ranu Septiana Inzy Alfaizah",
+      "description": "-",
+      "experience": "-",
+      "email": "ranusept@gmail.com",
+      "telp": "085853950136",
+      "address": "jalan",
+      "tgl_lahir": "2004-09-29",
+      "education": "2",
+      "jk": "2",
+      "posisiId": "4",
+      "skills": [
+        7,
+        8
+      ]
     }
   ],
   "dataForm": {
