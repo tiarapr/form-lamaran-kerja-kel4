@@ -11,7 +11,7 @@ const props = defineProps({
   <div class="table-data">
     <div class="mb-4 border-bottom d-flex justify-content-between">
       <h3>Data Pelamar</h3>
-      <router-link :to="{name: 'create-data'}" class="d-flex align-items-center text-decoration-none">Buat Baru</router-link>
+      <router-link :to="{name: 'create-data'}" class="d-flex align-items-center text-decoration-none">Tambah Data</router-link>
     </div>
     <table class="table table-bordered table-responsive">
       <thead>

@@ -158,9 +158,12 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="container mt-4">
-    <notif-component :notifData="notifData" />
-    <router-view v-model:form="formInput" :onSubmit="onSubmit" :dataForm="dataForm" :errors="errors" :isEdit="isEdit" :clearFormInput="clearFormInput" :allData="allData" :editData="editData" :hapusData="hapusData"></router-view>
+  <div>
+    <sidebar-component/>
+    <div class="container mt-4">
+      <notif-component :notifData="notifData" />
+      <router-view v-model:form="formInput" :onSubmit="onSubmit" :dataForm="dataForm" :errors="errors" :isEdit="isEdit" :clearFormInput="clearFormInput" :allData="allData" :editData="editData" :hapusData="hapusData"></router-view>
+    </div>
   </div>
 </template>
 

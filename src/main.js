@@ -2,6 +2,7 @@ import { createApp } from "vue";
 import router from '@/router'
 import "@/style.css";
 import App from "@/App.vue";
+import Sidebar from "@/components/Sidebar.vue";
 import Form from "@/components/Form.vue";
 import TableData from "@/components/TableData.vue";
 import BaseInput from "@/components/form/BaseInput.vue";
@@ -16,6 +17,7 @@ const app = createApp(App);
 
 app
   .use(router)
+  .component("sidebar-component", Sidebar)
   .component("form-component", Form)
   .component("table-data", TableData)
   .component("notif-component", Notif)

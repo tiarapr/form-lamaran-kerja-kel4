@@ -1,10 +1,13 @@
 import { createRouter, createWebHistory } from "vue-router";
+import App from '@/App.vue'
+import Sidebar from '@/components/Sidebar.vue'
 import TableData from "@/components/TableData.vue";
 import Form from '@/components/Form.vue'
 import Detail from '@/components/Detail.vue'
 
 const routes = [
-  {path: "/", name: "home", component: TableData},
+  {path: "/", name: "home", component: App},
+  {path: "/data", name: "data", component: TableData},
   {path: "/create", name: "create-data", component: Form},
   {path: "/:id", name: "detail", component: Detail, props: true},
   {path: "/:id/edit", name: "edit", component: Form, props: true}
