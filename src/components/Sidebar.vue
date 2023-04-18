@@ -2,6 +2,7 @@
     <div class="l-navbar" id="nav-bar">
         <nav class="nav">
             <div> 
+                <router-link :to="{name: 'home'}">
                 <a href="#" class="nav_logo"> 
                     <span class="nav_logo-name">MyCareer
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-stars" viewBox="0 0 16 16">
@@ -9,6 +10,7 @@
                         </svg>
                     </span> 
                 </a>
+                </router-link>
                 <div class="nav_list">
                     <router-link :to="{name: 'create-data'}">
                     <a class="nav_link"> 
