@@ -117,9 +117,14 @@ body {
 }
 
 .active {
-    color: var(--white-color);
+    color: #4f55c4;
     font-size: 18px;
     font-weight: 700;
+    background-color: var(--white-color);
+}
+
+.active:hover {
+    color: #4f55c4;
 }
 
 @media screen and (min-width: 768px) {
