@@ -1,5 +1,8 @@
 {
-  "users": [
+  "profile": {
+    "name": "Admin"
+  },
+  "pelamar": [
     {
       "id": 1,
       "name": "Kenzie Wistara",
@@ -17,8 +20,7 @@
         2,
         5,
         6,
-        4,
-        3
+        4
       ]
     },
     {
@@ -29,7 +31,7 @@
       "email": "contact.tiarapr@gmail.com",
       "telp": "085606114068",
       "address": "Surabaya",
-      "tgl_lahir": "2023-03-07",
+      "tgl_lahir": "2023-03-01",
       "education": "1",
       "jk": "2",
       "posisiId": "1",
@@ -38,44 +40,6 @@
         4,
         5,
         7
-      ]
-    },
-    {
-      "id": 3,
-      "name": "Natasya Surya Risky Amanda Putri",
-      "description": "-",
-      "experience": "-",
-      "email": "natasya.surya20@gmail.com",
-      "telp": "0895350057180",
-      "address": "Sidoarjo",
-      "tgl_lahir": "2004-12-13",
-      "education": "2",
-      "jk": "2",
-      "posisiId": "3",
-      "skills": [
-        1,
-        4,
-        5,
-        2,
-        6,
-        3
-      ]
-    },
-    {
-      "id": 4,
-      "name": "Ranu Septiana Inzy Alfaizah",
-      "description": "-",
-      "experience": "-",
-      "email": "ranusept@gmail.com",
-      "telp": "085853950136",
-      "address": "jalan",
-      "tgl_lahir": "2004-09-29",
-      "education": "2",
-      "jk": "2",
-      "posisiId": "4",
-      "skills": [
-        7,
-        8
       ]
     }
   ],

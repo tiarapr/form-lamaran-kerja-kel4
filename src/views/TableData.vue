@@ -1,4 +1,16 @@
 <script setup>
+import { storeToRefs } from 'pinia';
+
+import { useAuthStore, useUsersStore } from '@/stores';
+
+const authStore = useAuthStore();
+const { user: authUser } = storeToRefs(authStore);
+
+const usersStore = useUsersStore();
+const { users } = storeToRefs(usersStore);
+
+usersStore.getAll();
+
 const props = defineProps({
   allData: Array,
   dataForm: Object,
@@ -11,7 +23,7 @@ const props = defineProps({
   <div class="table-data">
     <div class="mb-4 border-bottom d-flex justify-content-between">
       <h3>Data Pelamar</h3>
-      <router-link :to="{name: 'create-data'}" class="d-flex align-items-center text-decoration-none">Buat Baru</router-link>
+      <router-link :to="{name: 'create-data'}" class="d-flex align-items-center text-decoration-none">Tambah Data</router-link>
     </div>
     <table class="table table-bordered table-responsive">
       <thead>
@@ -21,15 +33,15 @@ const props = defineProps({
           <th scope="col">Email</th>
           <th scope="col">Jenis Kelamin</th>
           <th scope="col">Posisi</th>
-          <th scope="col"></th>
+          <th scope="col">Opsi</th>
         </tr>
       </thead>
       <tbody>
         <tr v-if="!allData.length">
-          <td colspan="13">Belum memiliki Data</td>
+          <td colspan="6">Belum memiliki Data</td>
         </tr>
         <tr v-for="(item, index) in allData" :key="index">
-          <th scope="row">{{ index + 1 }}</th>
+          <td>{{ index + 1 }}</td>
           <td>{{ item.name }}</td>
           <td>{{ item.email }}</td>
           <td>{{ item.jk ? dataForm.jk[item.jk - 1].text : "" }}</td>

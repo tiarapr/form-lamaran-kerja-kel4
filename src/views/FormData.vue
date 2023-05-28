@@ -12,7 +12,8 @@
             <!-- Base Textarea Pengalaman Kerja -->
             <base-textarea v-model="form.experience" label="Pengalaman Kerja" :error="errors.experience"></base-textarea>
             <!-- Base Select Pendidikan -->
-            <base-select label="Pendidikan" v-model="form.education" :options="dataForm.educations" placeholder="Pilih Pendidikan Terakhir" :error="errors.education"></base-select>
+            <base-select label="Pendidikan" v-model="form.education" :options="dataForm.educations"
+              placeholder="Pilih Pendidikan Terakhir" :error="errors.education"></base-select>
             <!-- Base Input Email -->
             <base-input type="email" v-model="form.email" label="Email" :error="errors.email"></base-input>
           </div>
@@ -25,12 +26,15 @@
             <base-input type="date" v-model="form.tgl_lahir" label="Tanggal Lahir" :error="errors.tgl_lahir"></base-input>
             <!-- Base Radio Group Jenis Kelamin -->
             <div class="base-group">
-              <base-radio-group label="Jenis Kelamin" name="jenisKelamin" :options="dataForm.jk" v-model="form.jk" :error="errors.jk"></base-radio-group>
+              <base-radio-group label="Jenis Kelamin" name="jenisKelamin" :options="dataForm.jk" v-model="form.jk"
+                :error="errors.jk"></base-radio-group>
             </div>
             <!-- Base Select Posisi -->
-            <base-select label="Pilih Posisi" v-model="form.posisiId" :options="dataForm.positions" placeholder="Select a position" :error="errors.posisi"></base-select>
+            <base-select label="Pilih Posisi" v-model="form.posisiId" :options="dataForm.positions"
+              placeholder="Select a position" :error="errors.posisi"></base-select>
             <!-- Base Checkbox Group Skills -->
-            <base-checkbox-group label="Skills" v-model="form.skills" :options="dataForm.skills" inline :error="errors.skills"></base-checkbox-group>
+            <base-checkbox-group label="Skills" v-model="form.skills" :options="dataForm.skills" inline
+              :error="errors.skills"></base-checkbox-group>
           </div>
         </div>
         <hr />
@@ -45,24 +49,24 @@
 </template>
 
 <script>
-  export default {
-    props: {
-      id: String,
-      form: Object,
-      onSubmit: Function,
-      dataForm: Object,
-      errors: Object,
-      isEdit: Boolean,
-      clearFormInput: Function
-    },
-    methods: {
-      cancelButton() {
-        this.clearFormInput();
-        if (this.isEdit)
-          this.$router.push({name: "detail", params: {id: this.id}})
-        else
-          this.$router.push({name: "home"});
-      }
+export default {
+  props: {
+    id: String,
+    form: Object,
+    onSubmit: Function,
+    dataForm: Object,
+    errors: Object,
+    isEdit: Boolean,
+    clearFormInput: Function
+  },
+  methods: {
+    cancelButton() {
+      this.clearFormInput();
+      if (this.isEdit)
+        this.$router.push({ name: "detail", params: { id: this.id } })
+      else
+        this.$router.push({ name: "data" });
     }
-  };
+  }
+};
 </script>

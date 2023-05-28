@@ -11,12 +11,12 @@ const props = defineProps({
 
 const dateFormat = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
-const user = ref({})
+const pelamar = ref({})
 const date = ref("")
 
 const load = () => {
   if (props.allData.length)
-    user.value = props.allData.find(e => e.id == props.id)
+    pelamar.value = props.allData.find(e => e.id == props.id)
 }
 
 onMounted(() => {
@@ -30,26 +30,26 @@ onUpdated(() => {
 
 <template>
   <div class="col-12 form-card">
-    <h2 class="border-bottom mb-3 pb-4">Detail - {{ user.name }}</h2>
+    <h2 class="border-bottom mb-3 pb-4">Detail - {{ pelamar.name }}</h2>
     <div class="row">
       <div class="col">
         <div>
           <table>
             <tr>
               <td class="font-weight-bold">Nama:</td>
-              <td class="font-weight-normal pl-3" v-text="user.name"></td>
+              <td class="font-weight-normal pl-3" v-text="pelamar.name"></td>
             </tr>
             <tr>
               <td class="font-weight-bold">Deskripsi:</td>
-              <td class="font-weight-normal pl-3" v-text="user.description"></td>
+              <td class="font-weight-normal pl-3" v-text="pelamar.description"></td>
             </tr>
             <tr>
               <td class="font-weight-bold">Telepon:</td>
-              <td class="font-weight-normal pl-3" v-text="user.telp"></td>
+              <td class="font-weight-normal pl-3" v-text="pelamar.telp"></td>
             </tr>
             <tr>
               <td class="font-weight-bold">Tanggal lahir:</td>
-              <td class="font-weight-normal pl-3" v-text="new Date(user.tgl_lahir).toLocaleDateString('id-ID', dateFormat)"></td>
+              <td class="font-weight-normal pl-3" v-text="new Date(pelamar.tgl_lahir).toLocaleDateString('id-ID', dateFormat)"></td>
             </tr>
           </table>
         </div>
@@ -58,23 +58,23 @@ onUpdated(() => {
         <table>
           <tr>
             <td class="font-weight-bold">Email:</td>
-            <td class="font-weight-normal pl-3" v-text="user.email"></td>
+            <td class="font-weight-normal pl-3" v-text="pelamar.email"></td>
           </tr>
           <tr>
             <td class="font-weight-bold">Pengalaman:</td>
-            <td class="font-weight-normal pl-3" v-text="user.experience"></td>
+            <td class="font-weight-normal pl-3" v-text="pelamar.experience"></td>
           </tr>
           <tr>
             <td class="font-weight-bold">Alamat:</td>
-            <td class="font-weight-normal pl-3" v-text="user.address"></td>
+            <td class="font-weight-normal pl-3" v-text="pelamar.address"></td>
           </tr>
           <tr>
             <td class="font-weight-bold">Jenis kelamin:</td>
-            <td class="font-weight-normal pl-3" v-text="user.jk ? dataForm.jk[user.jk - 1].text : ''"></td>
+            <td class="font-weight-normal pl-3" v-text="pelamar.jk ? dataForm.jk[pelamar.jk - 1].text : ''"></td>
           </tr>
           <tr>
             <td class="font-weight-bold">Posisi:</td>
-            <td class="font-weight-normal pl-3" v-text="user.posisiId ? dataForm.positions[user.posisiId - 1].text : ''"></td>
+            <td class="font-weight-normal pl-3" v-text="pelamar.posisiId ? dataForm.positions[pelamar.posisiId - 1].text : ''"></td>
           </tr>
         </table>
       </div>
@@ -82,13 +82,13 @@ onUpdated(() => {
         <table>
           <tr>
             <td class="font-weight-bold">Pendidikan:</td>
-            <td class="font-weight-normal pl-3" v-text="user.education ? dataForm.educations[user.education - 1].text : ''"></td>
+            <td class="font-weight-normal pl-3" v-text="pelamar.education ? dataForm.educations[pelamar.education - 1].text : ''"></td>
           </tr>
           <tr class="position-relative">
             <td class="font-weight-bold">Skill:</td>
             <td>
               <ul class="skills">
-                <li v-for="skill in user.skills" v-text="skill ? dataForm.skills[skill - 1].text : ''"></li>
+                <li v-for="skill in pelamar.skills" v-text="skill ? dataForm.skills[skill - 1].text : ''"></li>
               </ul>
             </td>
           </tr>
@@ -96,9 +96,9 @@ onUpdated(() => {
       </div>
     </div>
     <div class="buttons border-top pt-4 d-flex justify-content-end">
-      <router-link :to="{name: 'home'}" class="btn btn-secondary">Kembali</router-link>
-      <button type="submit" class="btn btn-primary" @click="editData(user)">Edit</button>
-      <button type="submit" class="btn btn-danger" @click="hapusData(user.id)">Hapus</button>
+      <router-link :to="{name: 'data'}" class="btn btn-secondary">Kembali</router-link>
+      <button type="submit" class="btn btn-primary" @click="editData(pelamar)">Edit</button>
+      <button type="submit" class="btn btn-danger" @click="hapusData(pelamar.id)">Hapus</button>
     </div>
   </div>
 </template>
