@@ -17,12 +17,13 @@
       ]"
     />
   </div>
+  <p v-if="error" class="mt-2 text-sm text-red-500">{{ error }}</p>
 </template>
 
 <script>
 export default {
   inheritAttrs: false,
-  props: ['modelValue', 'label', 'addOn'],
+  props: ['modelValue', 'label', 'addOn', 'error'],
   emits: ['update:modelValue']
 }
 </script>

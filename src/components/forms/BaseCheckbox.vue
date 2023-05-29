@@ -16,11 +16,12 @@
       </div>
     </div>
   </div>
+  <p v-if="error" class="mt-2 text-sm text-red-500">{{ error }}</p>
 </template>
 
 <script>
 export default {
-  props: ['modelValue', 'options'],
+  props: ['modelValue', 'options', 'error'],
   emits: ['update:modelValue'],
   computed: {
     value: {

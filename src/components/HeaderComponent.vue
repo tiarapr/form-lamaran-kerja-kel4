@@ -4,17 +4,26 @@
       <div class="flex h-16 justify-between">
         <div class="hidden sm:flex sm:space-x-8">
           <RouterLink
-            v-for="item in navigation"
-            :key="item.name"
-            :to="item.to"
-            :class="[
-              'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300',
-              'inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium'
-            ]"
-            >{{ item.name }}</RouterLink
+            :to="{ name: 'form' }"
+            class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+            >Form</RouterLink
+          >
+          <RouterLink
+            v-if="auth.user.value"
+            :to="{ name: 'applications' }"
+            class="border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+            >Applications</RouterLink
           >
         </div>
-        <div class="hidden sm:ml-6 sm:flex sm:items-center gap-x-4">
+        <div class="hidden sm:ml-6 sm:flex sm:items-center gap-x-4" v-if="auth.user.value">
+          <button
+            @click="handleLogout"
+            class="text-gray-600 hover:text-gray-800 block text-sm font-medium"
+          >
+            Logout
+          </button>
+        </div>
+        <div class="hidden sm:ml-6 sm:flex sm:items-center gap-x-4" v-else>
           <RouterLink
             :to="{ name: 'auth.login' }"
             class="text-gray-600 hover:text-gray-800 block text-sm font-medium"
@@ -43,17 +52,15 @@
     <DisclosurePanel class="sm:hidden">
       <div class="space-y-1 pt-2 pb-3">
         <RouterLink
-          v-for="item in navigation"
-          :key="item.name"
-          :to="item.to"
-          :class="[
-            item.current
-              ? 'bg-indigo-50 border-indigo-500 text-indigo-700'
-              : 'border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800',
-            'block pl-3 pr-4 py-2 border-l-4 text-base font-medium'
-          ]"
-          :aria-current="item.current ? 'page' : undefined"
-          >{{ item.name }}</RouterLink
+          :to="{ name: 'form' }"
+          class="border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
+          >Form</RouterLink
+        >
+        <RouterLink
+          v-if="auth.user.value"
+          :to="{ name: 'applications' }"
+          class="border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
+          >Applications</RouterLink
         >
       </div>
       <div class="border-t border-gray-200 pt-2 pl-4 pb-3">
@@ -76,6 +83,8 @@
 
 <script>
 import { RouterLink } from 'vue-router'
+import { useAuthenticationStore } from '@/stores/authentication'
+
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
 import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
 
@@ -89,10 +98,20 @@ export default {
     RouterLink
   },
   data: () => ({
+    auth: useAuthenticationStore(),
     navigation: [
       { name: 'Form', to: { name: 'form' } },
       { name: 'Applications', to: { name: 'applications' } }
     ]
-  })
+  }),
+  methods: {
+    handleLogout() {
+      const confirmation = confirm('Are you sure you want to log out?')
+      if (confirmation) {
+        this.auth.logout()
+        this.$router.push({ name: 'auth.login' })
+      }
+    }
+  }
 }
 </script>
