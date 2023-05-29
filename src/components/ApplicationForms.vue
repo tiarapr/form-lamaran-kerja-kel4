@@ -106,6 +106,7 @@ import BaseTextarea from './forms/BaseTextarea.vue'
 import BaseCheckbox from './forms/BaseCheckbox.vue'
 
 export default {
+  props: ['id'],
   components: {
     BaseInput,
     BaseSelect,
@@ -152,6 +153,18 @@ export default {
     }
   },
   methods: {
+    clearForms() {
+      this.forms = {
+        first_name: '',
+        last_name: '',
+        email_address: '',
+        application_for: '',
+        gender: '',
+        salary_expectation: '',
+        about: '',
+        skills: []
+      }
+    },
     validation() {
       this.errors = {
         first_name: '',
@@ -174,13 +187,27 @@ export default {
       if (!this.forms.about) this.errors.about = 'About is required'
       if (!this.forms.skills.length) this.errors.skills = 'Skills is required'
     },
-    handleSubmit() {
+    async handleSubmit() {
       this.validation()
       let isValid = true
       for (const key in this.errors) if (this.errors[key]) isValid = false
       if (isValid) {
-        this.store.add(this.forms)
-        this.$router.push({ name: 'applications' })
+        if (this.$route.name === 'application.edit') {
+          await this.store.update(this.id, this.forms)
+          this.$router.push({ name: 'application.detail', params: { id: this.id } })
+        } else {
+          await this.store.add(this.forms)
+          this.$router.push({ name: 'thank' })
+        }
+        this.clearForms()
+      }
+    }
+  },
+  async created() {
+    if (this.$route.name === 'application.edit') {
+      await this.store.findById(this.id)
+      for (const key in this.forms) {
+        this.forms[key] = this.store.application[key]
       }
     }
   }

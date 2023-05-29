@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { useAuthenticationStore } from '@/stores/authentication'
 
 import ApplicationForms from '../components/ApplicationForms.vue'
+import ThankApply from '../views/ThankApply.vue'
 import ApplicationsView from '../views/ApplicationsView.vue'
 import ApplicationView from '../views/ApplicationView.vue'
 import LoginView from '../views/auth/LoginView.vue'
@@ -14,6 +15,11 @@ const routes = [
     alias: '/form',
     name: 'form',
     component: ApplicationForms
+  },
+  {
+    path: '/thank-you-for-applying',
+    name: 'thank',
+    component: ThankApply
   },
   {
     path: '/applications',
@@ -51,6 +57,15 @@ const routes = [
         path: ':id',
         name: 'application.detail',
         component: ApplicationView,
+        props: true,
+        meta: {
+          requiresAuth: true
+        }
+      },
+      {
+        path: ':id/edit',
+        name: 'application.edit',
+        component: ApplicationForms,
         props: true,
         meta: {
           requiresAuth: true

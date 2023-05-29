@@ -63,7 +63,15 @@
           >Applications</RouterLink
         >
       </div>
-      <div class="border-t border-gray-200 pt-2 pl-4 pb-3">
+      <div class="border-t border-gray-200 pt-2 pl-4 pb-3" v-if="auth.user.value">
+        <button
+          @click="handleLogout"
+          class="text-gray-600 hover:text-gray-800 block py-2 text-base font-medium"
+        >
+          Logout
+        </button>
+      </div>
+      <div class="border-t border-gray-200 pt-2 pl-4 pb-3" v-else>
         <button
           @click="$router.push({ name: 'auth.login' })"
           class="text-gray-600 hover:text-gray-800 block py-2 text-base font-medium"
