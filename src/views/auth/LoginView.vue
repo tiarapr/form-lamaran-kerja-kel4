@@ -41,40 +41,11 @@
 </template>
 
 <script>
-import { ref } from "vue";
-import { RouterLink, useRouter } from 'vue-router'
-import useAuthUser from "@/composables/useAuthUser";
+import { RouterLink } from 'vue-router'
 
 export default {
   components: {
     RouterLink
-  },
-  setup() {
-    // Use necessary composables
-    const router = useRouter();
-    const { login } = useAuthUser();
-
-    // keep up with form data
-    const form = ref({
-      email: "",
-      password: "",
-    });
-
-    // call the proper login method from the AuthUser composable
-    // on the submit of the form
-    const handleLogin = async () => {
-      try {
-        await login(form.value);
-        router.push({ name: "applications" });
-      } catch (error) {
-        alert(error.message);
-      }
-    };
-
-    return {
-      form,
-      handleLogin,
-    };
   }
 }
 </script>

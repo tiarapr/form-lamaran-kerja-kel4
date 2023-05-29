@@ -49,47 +49,11 @@
 </template>
 
 <script>
-import { ref } from "vue";
-import useAuthUser from "@/composables/useAuthUser";
-import { RouterLink, useRouter } from 'vue-router';
+import { RouterLink } from 'vue-router';
 
 export default {
   components: {
     RouterLink
-  },
-  setup() {
-    // Use necessary composables
-    const router = useRouter();
-    const { register } = useAuthUser();
-
-    // Form reactive ref to keep up with the form data
-    const regist = ref({
-      username: "",
-      email: "",
-      password: "",
-    });
-
-    // function to handle the form submit
-    async function handleSubmit() {
-      try {
-        // use the register method from the AuthUser composable
-        await register(regist.value);
-
-        // and redirect to an EmailConfirmation page that will instruct
-        // the user to confirm their email address
-        router.push({
-          name: "EmailConfirmation",
-          query: { email: regist.value.email },
-        });
-      } catch (error) {
-        alert(error.message);
-      }
-    }
-
-    return {
-      regist,
-      handleSubmit,
-    };
-  },
+  }
 }
 </script>
