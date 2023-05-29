@@ -5,49 +5,34 @@
     </h2>
 
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-      <form class="space-y-6" @submit.prevent>
+      <form class="space-y-6" @submit.prevent="handleSubmit">
         <div>
-          <label for="username" class="block text-sm font-medium leading-6 text-gray-900"
-            >Username</label
-          >
+          <label for="username" class="block text-sm font-medium leading-6 text-gray-900">Username</label>
           <div class="mt-2">
-            <input
-              id="username"
-              type="text"
-              class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-            />
+            <input id="username" type="text" v-model="regist.username"
+              class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
           </div>
         </div>
 
         <div>
           <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email</label>
           <div class="mt-2">
-            <input
-              id="email"
-              type="text"
-              class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-            />
+            <input id="email" type="text" v-model="regist.email"
+              class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
           </div>
         </div>
 
         <div>
-          <label for="password" class="block text-sm font-medium leading-6 text-gray-900"
-            >Password</label
-          >
+          <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
           <div class="mt-2">
-            <input
-              id="password"
-              type="password"
-              class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-            />
+            <input id="password" type="password" v-model="regist.password"
+              class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
           </div>
         </div>
 
         <div>
-          <button
-            type="submit"
-            class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-          >
+          <button type="submit"
+            class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
             Sign up
           </button>
         </div>
@@ -56,22 +41,55 @@
       <p class="mt-10 text-center text-sm text-gray-500">
         Or
         {{ ' ' }}
-        <RouterLink
-          :to="{ name: 'auth.login' }"
-          class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
-          >Sign in to your account</RouterLink
-        >
+        <RouterLink :to="{ name: 'auth.login' }" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
+          Sign in to your account</RouterLink>
       </p>
     </div>
   </div>
 </template>
 
 <script>
-import { RouterLink } from 'vue-router'
+import { ref } from "vue";
+import useAuthUser from "@/composables/useAuthUser";
+import { RouterLink, useRouter } from 'vue-router';
 
 export default {
   components: {
     RouterLink
-  }
+  },
+  setup() {
+    // Use necessary composables
+    const router = useRouter();
+    const { register } = useAuthUser();
+
+    // Form reactive ref to keep up with the form data
+    const regist = ref({
+      username: "",
+      email: "",
+      password: "",
+    });
+
+    // function to handle the form submit
+    async function handleSubmit() {
+      try {
+        // use the register method from the AuthUser composable
+        await register(regist.value);
+
+        // and redirect to an EmailConfirmation page that will instruct
+        // the user to confirm their email address
+        router.push({
+          name: "EmailConfirmation",
+          query: { email: regist.value.email },
+        });
+      } catch (error) {
+        alert(error.message);
+      }
+    }
+
+    return {
+      regist,
+      handleSubmit,
+    };
+  },
 }
 </script>
