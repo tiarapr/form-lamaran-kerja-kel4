@@ -30,8 +30,8 @@ export const useApplicationStore = defineStore('application', () => {
   }
 
   const add = async (forms) => {
-    await axios.post('http://localhost:3000/applications', forms).catch((error) => {
-      console.log(error)
+    await axios.post('http://localhost:3000/applications', forms).catch((err) => {
+      console.log(err)
     })
     await fetch()
   }

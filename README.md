@@ -16,7 +16,13 @@ See [Vite Configuration Reference](https://vitejs.dev/config/).
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+## Run fake API using json-server
+
+```sh
+npm run api
+```
+
+### keep the fake API running, then Compile and Hot-Reload for Development
 
 ```sh
 npm run dev

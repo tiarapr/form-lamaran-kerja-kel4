@@ -13,27 +13,49 @@
 
       <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
         <div class="sm:col-span-3">
-          <BaseInput type="text" v-model="forms.first_name" label="firstName">First name</BaseInput>
+          <BaseInput
+            type="text"
+            v-model="forms.first_name"
+            label="firstName"
+            :error="errors.first_name"
+            >First name</BaseInput
+          >
         </div>
 
         <div class="sm:col-span-3">
-          <BaseInput type="text" v-model="forms.last_name" label="lastName">Last name</BaseInput>
+          <BaseInput
+            type="text"
+            v-model="forms.last_name"
+            label="lastName"
+            :error="errors.last_name"
+            >Last name</BaseInput
+          >
         </div>
 
         <div class="sm:col-span-4">
-          <BaseInput type="email" v-model="forms.email_address" label="emailAddress"
+          <BaseInput
+            type="email"
+            v-model="forms.email_address"
+            label="emailAddress"
+            :error="errors.email_address"
             >Email address</BaseInput
           >
         </div>
 
         <div class="sm:col-span-2 sm:col-start-1">
-          <BaseSelect v-model="forms.application_for" label="applicationFor" :options="jobs"
+          <BaseSelect
+            v-model="forms.application_for"
+            label="applicationFor"
+            :options="jobs"
+            :error="errors.application_for"
             >Application for</BaseSelect
           >
         </div>
 
         <div class="sm:col-span-2">
-          <BaseSelect v-model="forms.gender" label="gender" :options="gender">Gender</BaseSelect>
+          <BaseSelect v-model="forms.gender" label="gender" :options="gender" :error="errors.gender"
+            >Gender</BaseSelect
+          >
         </div>
 
         <div class="sm:col-span-2">
@@ -42,16 +64,23 @@
             v-model="forms.salary_expectation"
             label="salaryExpectation"
             addOn="Rp"
+            :error="errors.salary_expectation"
             >Salary expectation</BaseInput
           >
         </div>
 
         <div class="col-span-full">
-          <BaseTextarea v-model="forms.about" label="about">About</BaseTextarea>
+          <BaseTextarea v-model="forms.about" label="about" :error="errors.about"
+            >About</BaseTextarea
+          >
         </div>
 
         <div class="col-span-full">
-          <BaseCheckbox v-model="forms.skills" :options="skills"></BaseCheckbox>
+          <BaseCheckbox
+            v-model="forms.skills"
+            :options="skills"
+            :error="errors.skills"
+          ></BaseCheckbox>
         </div>
       </div>
     </div>
@@ -105,18 +134,54 @@ export default {
         last_name: '',
         email_address: '',
         application_for: '',
-        gender: null,
+        gender: '',
         salary_expectation: '',
         about: '',
         skills: []
+      },
+      errors: {
+        first_name: '',
+        last_name: '',
+        email_address: '',
+        application_for: '',
+        gender: '',
+        salary_expectation: '',
+        about: '',
+        skills: ''
       }
     }
   },
   methods: {
+    validation() {
+      this.errors = {
+        first_name: '',
+        last_name: '',
+        email_address: '',
+        application_for: '',
+        gender: '',
+        salary_expectation: '',
+        about: '',
+        skills: ''
+      }
+
+      if (!this.forms.first_name) this.errors.first_name = 'First name is required'
+      if (!this.forms.last_name) this.errors.last_name = 'Last name is required'
+      if (!this.forms.email_address) this.errors.email_address = 'Email address is required'
+      if (!this.forms.application_for) this.errors.application_for = 'Application for is required'
+      if (!this.forms.gender) this.errors.gender = 'Gender is required'
+      if (!this.forms.salary_expectation)
+        this.errors.salary_expectation = 'Salary expectation is required'
+      if (!this.forms.about) this.errors.about = 'About is required'
+      if (!this.forms.skills.length) this.errors.skills = 'Skills is required'
+    },
     handleSubmit() {
-      // this.store.add(this.forms) ini untuk menambah data kalo udah lolso validasi
-      // this.$router.push({ name: 'applications' }) ini untuk pindah ke halaman tabel setelah nambah data
-      console.log(this.forms) // ini untuk tes isi formulir yang disubmit
+      this.validation()
+      let isValid = true
+      for (const key in this.errors) if (this.errors[key]) isValid = false
+      if (isValid) {
+        this.store.add(this.forms)
+        this.$router.push({ name: 'applications' })
+      }
     }
   }
 }

@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
+import { useAuthenticationStore } from '@/stores/authentication'
+
 import ApplicationForms from '../components/ApplicationForms.vue'
 import ApplicationsView from '../views/ApplicationsView.vue'
 import ApplicationView from '../views/ApplicationView.vue'
@@ -16,7 +18,10 @@ const routes = [
   {
     path: '/applications',
     name: 'applications',
-    component: ApplicationsView
+    component: ApplicationsView,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/auth',
@@ -24,12 +29,18 @@ const routes = [
       {
         path: 'login',
         name: 'auth.login',
-        component: LoginView
+        component: LoginView,
+        meta: {
+          bannedAuth: true
+        }
       },
       {
         path: 'register',
         name: 'auth.register',
-        component: RegisterView
+        component: RegisterView,
+        meta: {
+          bannedAuth: true
+        }
       }
     ]
   },
@@ -40,7 +51,10 @@ const routes = [
         path: ':id',
         name: 'application.detail',
         component: ApplicationView,
-        props: true
+        props: true,
+        meta: {
+          requiresAuth: true
+        }
       }
     ]
   }
@@ -50,6 +64,11 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,
   linkActiveClass: 'active'
+})
+
+router.beforeEach((to) => {
+  const { isLoggedIn } = useAuthenticationStore()
+  if (!isLoggedIn() && to.meta.requiresAuth) return false
 })
 
 export default router
