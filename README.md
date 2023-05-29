@@ -15,7 +15,7 @@ Ini adalah repository untuk aplikasi formulir lamaran kerja yang dibangun menggu
 
 ## Deskripsi Aplikasi
 
-Aplikasi formulir lamaran kerja ini dibangun dengan menggunakan Vue.js dan telah mengimplementasikan otentikasi menggunakan layanan otentikasi yang disediakan oleh [Supabase](supabase.com). Pengguna dapat membuat akun, masuk, dan mengelola data lamaran kerja.
+Aplikasi formulir lamaran kerja ini dibangun dengan menggunakan Vue.js dan telah mengimplementasikan otentikasi menggunakan layanan otentikasi yang disediakan oleh [Supabase](https://supabase.com). Pengguna dapat membuat akun, masuk, dan mengelola data lamaran kerja.
 
 Beberapa fitur utama yang telah diimplementasikan dalam aplikasi ini adalah:
 
