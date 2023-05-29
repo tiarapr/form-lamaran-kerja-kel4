@@ -18,9 +18,6 @@ const routes = [
     path: '/applications',
     name: 'applications',
     component: ApplicationsView,
-    meta: {
-      requiresAuth: true,
-    },
   },
   {
     path: '/auth',
@@ -59,9 +56,6 @@ const routes = [
         name: 'application.detail',
         component: ApplicationView,
         props: true,
-        meta: {
-          requiresAuth: true,
-        },
       }
     ]
   }
@@ -72,16 +66,5 @@ const router = createRouter({
   routes,
   linkActiveClass: 'active'
 })
-
-router.beforeEach((to) => {
-  const { isLoggedIn } = useAuthUser();
-  if (
-    !isLoggedIn() &&
-    to.meta.requiresAuth &&
-    !Object.keys(to.query).includes("fromEmail")
-  ) {
-    return { name: "Login" };
-  }
-});
 
 export default router
