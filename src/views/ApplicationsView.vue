@@ -67,8 +67,6 @@ import { ChevronRightIcon } from '@heroicons/vue/24/outline'
 import { useApplicationStore } from '@/stores/application'
 
 import { findJob } from '@/func'
-import useAuthUser from "@/composables/useAuthUser";
-const { user } = useAuthUser();
 
 export default {
   components: {

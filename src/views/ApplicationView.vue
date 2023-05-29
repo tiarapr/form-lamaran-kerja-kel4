@@ -67,6 +67,7 @@
 
 <script>
 import { useApplicationStore } from '@/stores/application'
+
 import { currencyFormat, arrayToString, findJob } from '@/func'
 
 export default {
