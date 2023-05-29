@@ -25,3 +25,8 @@ Jalankan JSON server
 ```
 npx json-server --watch src/data.json
 ```
+Login
+```
+username: admin
+password: admin123
+```
