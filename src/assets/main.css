@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  ::selection {
+    @apply bg-blue-700 text-white;
+  }
+  html {
+    @apply h-full bg-gray-100;
+  }
+  body {
+    @apply h-full;
+  }
+}
+
+@layer components {
+  .active {
+    @apply !border-indigo-500 !text-gray-900;
+  }
+}

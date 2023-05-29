@@ -1,18 +1,55 @@
-import { createRouter, createWebHistory } from "vue-router";
-import TableData from "@/components/TableData.vue";
-import Form from '@/components/Form.vue'
-import Detail from '@/components/Detail.vue'
+import { createRouter, createWebHistory } from 'vue-router'
+
+import ApplicationForms from '../components/ApplicationForms.vue'
+import ApplicationsView from '../views/ApplicationsView.vue'
+import ApplicationView from '../views/ApplicationView.vue'
+import LoginView from '../views/auth/LoginView.vue'
+import RegisterView from '../views/auth/RegisterView.vue'
 
 const routes = [
-  {path: "/", name: "home", component: TableData},
-  {path: "/create", name: "create-data", component: Form},
-  {path: "/:id", name: "detail", component: Detail, props: true},
-  {path: "/:id/edit", name: "edit", component: Form, props: true}
+  {
+    path: '/',
+    alias: '/form',
+    name: 'form',
+    component: ApplicationForms
+  },
+  {
+    path: '/applications',
+    name: 'applications',
+    component: ApplicationsView
+  },
+  {
+    path: '/auth',
+    children: [
+      {
+        path: 'login',
+        name: 'auth.login',
+        component: LoginView
+      },
+      {
+        path: 'register',
+        name: 'auth.register',
+        component: RegisterView
+      }
+    ]
+  },
+  {
+    path: '/application',
+    children: [
+      {
+        path: ':id',
+        name: 'application.detail',
+        component: ApplicationView,
+        props: true
+      }
+    ]
+  }
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
-  routes
+  history: createWebHistory(import.meta.env.BASE_URL),
+  routes,
+  linkActiveClass: 'active'
 })
 
 export default router
