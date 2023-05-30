@@ -1,0 +1,291 @@
+{
+  "jobs": [
+    {
+      "id": 1,
+      "title": "Software Engineer",
+      "slug": "software-engineer.1"
+    },
+    {
+      "id": 2,
+      "title": "IT Operations",
+      "slug": "it-operations.2"
+    },
+    {
+      "id": 3,
+      "title": "Data Scientist",
+      "slug": "data-scientist.3"
+    },
+    {
+      "id": 4,
+      "title": "Web Developer",
+      "slug": "web-developer.4"
+    },
+    {
+      "id": 5,
+      "title": "Network Administrator",
+      "slug": "network-administrator.5"
+    },
+    {
+      "id": 6,
+      "title": "Cybersecurity Analyst",
+      "slug": "cybersecurity-analyst.6"
+    },
+    {
+      "id": 7,
+      "title": "Database Administrator",
+      "slug": "database-administrator.7"
+    },
+    {
+      "id": 8,
+      "title": "Artificial Intelligence Engineer",
+      "slug": "artificial-intelligence-engineer.8"
+    },
+    {
+      "id": 9,
+      "title": "UI/UX Designer",
+      "slug": "ui-ux-designer.9"
+    },
+    {
+      "id": 10,
+      "title": "Cloud Architect",
+      "slug": "cloud-architect.10"
+    },
+    {
+      "id": 11,
+      "title": "Systems Analyst",
+      "slug": "systems-analyst.11"
+    },
+    {
+      "id": 12,
+      "title": "Mobile App Developer",
+      "slug": "mobile-app-developer.12"
+    },
+    {
+      "id": 13,
+      "title": "DevOps Engineer",
+      "slug": "devops-engineer.13"
+    },
+    {
+      "id": 14,
+      "title": "IT Project Manager",
+      "slug": "it-project-manager.14"
+    },
+    {
+      "id": 15,
+      "title": "Machine Learning Engineer",
+      "slug": "machine-learning-engineer.15"
+    },
+    {
+      "id": 16,
+      "title": "Software Quality Assurance Engineer",
+      "slug": "software-quality-assurance-engineer.16"
+    },
+    {
+      "id": 17,
+      "title": "Network Engineer",
+      "slug": "network-engineer.17"
+    },
+    {
+      "id": 18,
+      "title": "Front-end Developer",
+      "slug": "front-end-developer.18"
+    },
+    {
+      "id": 19,
+      "title": "Back-end Developer",
+      "slug": "back-end-developer.19"
+    },
+    {
+      "id": 20,
+      "title": "IT Consultant",
+      "slug": "it-consultant.20"
+    },
+    {
+      "id": 21,
+      "title": "Full Stack Developer",
+      "slug": "full-stack-developer.21"
+    },
+    {
+      "id": 22,
+      "title": "Data Engineer",
+      "slug": "data-engineer.22"
+    },
+    {
+      "id": 23,
+      "title": "Information Security Analyst",
+      "slug": "information-security-analyst.23"
+    },
+    {
+      "id": 24,
+      "title": "Embedded Systems Engineer",
+      "slug": "embedded-systems-engineer.24"
+    },
+    {
+      "id": 25,
+      "title": "Big Data Engineer",
+      "slug": "big-data-engineer.25"
+    },
+    {
+      "id": 26,
+      "title": "IT Business Analyst",
+      "slug": "it-business-analyst.26"
+    }
+  ],
+  "skills": [
+    {
+      "id": 1,
+      "title": "HTML",
+      "slug": "html.1"
+    },
+    {
+      "id": 2,
+      "title": "CSS",
+      "slug": "css.2"
+    },
+    {
+      "id": 3,
+      "title": "JavaScript",
+      "slug": "javascript.3"
+    },
+    {
+      "id": 4,
+      "title": "C++",
+      "slug": "c-plus-plus.4"
+    },
+    {
+      "id": 5,
+      "title": "Python",
+      "slug": "python.5"
+    },
+    {
+      "id": 6,
+      "title": "Ruby",
+      "slug": "ruby.6"
+    },
+    {
+      "id": 7,
+      "title": "Java",
+      "slug": "java.7"
+    },
+    {
+      "id": 8,
+      "title": "PHP",
+      "slug": "php.8"
+    },
+    {
+      "id": 9,
+      "title": "Laravel",
+      "slug": "laravel.9"
+    },
+    {
+      "id": 10,
+      "title": "Ruby on Rails",
+      "slug": "ruby-on-rails.10"
+    },
+    {
+      "id": 11,
+      "title": "Node.js",
+      "slug": "node-js.11"
+    },
+    {
+      "id": 12,
+      "title": "Express.js",
+      "slug": "express-js.12"
+    },
+    {
+      "id": 13,
+      "title": "MySQL",
+      "slug": "mysql.13"
+    },
+    {
+      "id": 14,
+      "title": "PostgreSQL",
+      "slug": "postgresql.14"
+    },
+    {
+      "id": 15,
+      "title": "MongoDB",
+      "slug": "mongodb.15"
+    },
+    {
+      "id": 16,
+      "title": "Git",
+      "slug": "git.16"
+    },
+    {
+      "id": 17,
+      "title": "Docker",
+      "slug": "docker.17"
+    },
+    {
+      "id": 18,
+      "title": "AWS",
+      "slug": "aws.18"
+    },
+    {
+      "id": 19,
+      "title": "Azure",
+      "slug": "azure.19"
+    },
+    {
+      "id": 20,
+      "title": "Google Cloud Platform",
+      "slug": "google-cloud-platform.20"
+    },
+    {
+      "id": 21,
+      "title": "React",
+      "slug": "react.21"
+    },
+    {
+      "id": 22,
+      "title": "Angular",
+      "slug": "angular.22"
+    },
+    {
+      "id": 23,
+      "title": "Spring Framework",
+      "slug": "spring-framework.23"
+    },
+    {
+      "id": 24,
+      "title": "Kubernetes",
+      "slug": "kubernetes.24"
+    },
+    {
+      "id": 25,
+      "title": "Machine Learning",
+      "slug": "machine-learning.25"
+    },
+    {
+      "id": 26,
+      "title": "Artificial Intelligence",
+      "slug": "artificial-intelligence.26"
+    },
+    {
+      "id": 27,
+      "title": "Cybersecurity",
+      "slug": "cybersecurity.27"
+    },
+    {
+      "id": 28,
+      "title": "Blockchain",
+      "slug": "blockchain.28"
+    },
+    {
+      "id": 29,
+      "title": "Big Data",
+      "slug": "big-data.29"
+    },
+    {
+      "id": 30,
+      "title": "Data Science",
+      "slug": "data-science.30"
+    },
+    {
+      "id": 31,
+      "title": "UI/UX Design",
+      "slug": "uiux-design.31"
+    }
+  ]
+}
