@@ -38,12 +38,11 @@ Install semua dependensi yang diperlukan:
 npm install
 ```
 
-Rename file bernama `.env.local.example` menjadi `.env.local`, dan isi dengan data yang sudah disediakan:
+Rename file `.env.local.example` menjadi `.env.local`, dan isi dengan data yang sudah disediakan:
 
 ```env
-# Contoh isi dari file .env.local
-VITE_API_URL=https://your-supabase-url.supabase.co
-VITE_API_KEY=your-supabase-api-key
+VITE_API_URL=ubah bagian ini
+VITE_API_KEY=ubah bagian ini
 ```
 
 Jalankan fake API
