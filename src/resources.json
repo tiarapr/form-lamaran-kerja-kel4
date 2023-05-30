@@ -281,6 +281,11 @@
       "id": 30,
       "title": "Data Science",
       "slug": "data-science.30"
+    },
+    {
+      "id": 31,
+      "title": "UI/UX Design",
+      "slug": "uiux-design.31"
     }
   ]
 }
